@@ -1,0 +1,50 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.my-3d-element {
+  /* position: fixed; */
+  top: 0;
+  background-color: #3498db;
+}
+
+#image-overlay {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 20px;
+  left: 20px;
+  z-index: 1;
+  /* HTML 요소가 3D 씬 위에 나타나도록 설정 */
+}
+
+#cyberlogo {
+  width: 170%;
+  height: auto;
+}
+
+#arrow-button {
+  position: fixed;
+  top: 50%;
+  right: 0px;
+  /* 수정: 기존 right 값에서 오른쪽으로 20px 이동 */
+  transform: translateY(-50%);
+  background-color: #f4ecf1;
+  border: none;
+  color: palevioletred;
+  font-size: 22px;
+  font-family: 'GangwonEduPowerExtraBoldA';
+  cursor: pointer;
+  padding: 10px 4px 11px 14px;
+  border-radius: 20px 0px 0px 20px;
+  z-index: 2;
+}
+
+@font-face {
+  font-family: 'GangwonEduPowerExtraBoldA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  color: #333333;
+}

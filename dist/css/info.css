@@ -1,0 +1,101 @@
+body {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    background-color: #FFE7E0;
+    margin: 0;
+    /* padding: 0px 0px 600px 0px; */
+    /* justify-content: center; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* height: 57%; */
+    height: 90vh;
+    /* font-size: 16px; */
+    text-align: center;
+    /* font-style: bold; */
+
+}
+
+.container {
+    background-color: #FF953C;
+    width: 1000px;
+    /* height: 450px; */
+    margin: 20px auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    /* padding-bottom: 20px; */
+}
+
+h1 {
+    text-align: center;
+    /* margin-bottom: 10px; */
+    font-size:45px;
+}
+
+form label,
+form input,
+form textarea,
+form select { 
+    font-size:20px;
+    text-align: center;
+    display: block;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    margin-bottom: 20px;
+    padding: 15px; 
+    /* 패딩 추가 */
+    box-sizing: border-box;
+     /* 패딩을 박스 크기에 포함시키기 위해 추가 */
+}
+
+form input,
+form textarea,
+form select {
+    /* position: relative; */
+    width: 100%;
+    border: #FFE7E0;
+    border-radius: 4px;
+    /* box-sizing: border-box;  */
+    /* 패딩을 박스 크기에 포함시키기 위해 추가 */
+}
+
+#month,
+#day {
+    /* font-size:18px; */
+    width: 48%;
+    margin-right: 15px;
+    display: inline-block;
+    font-family: 'GangwonEduPowerExtraBoldA';
+}
+
+/* #userInfo {
+    margin-top: 20px;
+    display: none;
+}
+
+#userInfo h2 {
+    margin-bottom: 10px;
+} */
+
+#tokki {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 10px; /* 이미지와 화면 경계 간의 여백 설정, 필요에 따라 조절 */
+}
+#carrot {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 10px; /* 이미지와 화면 경계 간의 여백 설정, 필요에 따라 조절 */
+}
+
+
+@font-face {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    color: #333333;
+}

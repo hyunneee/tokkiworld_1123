@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+    
+    e {
+			margin: 0;
+			overflow: hidden;
+			transition: overflow 0.5s;
+		}
+
+
+
+
+        /* NAVIGATION LOGO OVERLAY, CREDIT POPUP */
+
+        .popup-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale (0.8);
+            width: 500px;
+            padding: 20px;
+            background-color: palevioletred;
+            opacity: 50%;
+            border: 1px solid white;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 3;
+            font-family: 'GangwonEduPowerExtraBoldA';
+            font-size: 15px;
+            color: white;
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .small-text {
+            font-size: 60%;
+        }
+
+        .normal-text {
+            font-size: 100%;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        /* 여기까지 */
+		/* NAVIGATION BAR */
+
+		nav {
+            position: fixed;
+            bottom: 0;
+            width: 15%;
+            left: 43%;
+            background-color: rgb(252, 225, 234);
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.5s;
+            font-family: 'GangwonEduPowerExtraBoldA';
+        }
+
+		nav a {
+			display: block;
+			color: palevioletred;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			transition: background-color 0.3s;
+		}
+
+		nav a:hover {
+			background-color: white;
+			color: black;
+		}
+
+		#close-button {
+            position: fixed;
+            left: 57%;
+            bottom: 11.3%;
+            cursor: pointer;
+            color: grey;
+            font-size: 25px;
+            z-index: 10;
+        }
+
+		/* 여기까지 */
+
+
+
+        /* NAVIGATION LOGO OVERLAY, CREDIT POPUP */
+
+        #navigationlogo {
+            position: fixed;
+            width: 50px;
+            height: auto;
+            bottom: 10px;
+            left: 50%;
+            margin-left: -50px;
+            z-index: 1;
+            cursor: pointer;
+            transition: opacity 0.5s;
+        }
+
+        #option-text {
+            position: fixed;
+            width: 100%;
+            height: auto;
+            bottom: 55px;
+            left: 10px;
+            text-align: center;
+            color: white;
+            font-family: 'GangwonEduPowerExtraBoldA';
+            font-size: 15px;
+        }
+
+        .popup-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale (0.8);
+            width: 300px;
+            padding: 20px;
+            background-color: palevioletred;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 3;
+            font-family: 'GangwonEduPowerExtraBoldA';
+            opacity: 0;
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        /* 여기까지 */
+
+
+
+    #arrow-button {
+        position: fixed;
+        top: 50%;
+        right: 0px; /* 수정: 기존 right 값에서 오른쪽으로 20px 이동 */
+        transform: translateY(-50%);
+        background-color: #f4ecf1;
+        border: none;
+        color: palevioletred;
+        font-size: 22px;
+        font-family: 'GangwonEduPowerExtraBoldA';
+        cursor: pointer;
+        padding: 10px 4px 11px 14px;
+        border-radius: 20px 0px 0px 20px;
+        z-index: 2;
+    }
+    #cyber-button {
+        position: fixed;
+        top: 50%;
+        left: 0px; /* 수정: 기존 right 값에서 오른쪽으로 20px 이동 */
+        transform: translateY(-50%);
+        background-color: #f4ecf1;
+        border: none;
+        color: palevioletred;
+        font-size: 22px;
+        font-family: 'GangwonEduPowerExtraBoldA';
+        cursor: pointer;
+        padding: 10px 14px 11px 4px;
+        border-radius: 0px 20px 20px 0px;
+        z-index: 2;
+    }
+    #image-overlay {
+        position: absolute;
+        width: 100px;
+        height: 100px;   
+        top: 20px;
+        left: 20px;
+        z-index: 1;
+    }
+    #reallogo {
+    width: 170%; /* 혹은 다른 크기로 조절하십시오. */
+    height: auto; /* 가로 크기에 비례하여 세로 크기 조절 */
+}
+    @font-face {
+        font-family: 'GangwonEduPowerExtraBoldA';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        color: #333333;
+    }
+
+    .keyboard-info {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background-color: rgba(244, 236, 241, 0.9);
+        padding: 10px;
+        border-radius: 10px;
+        font-family: 'GangwonEduPowerExtraBoldA';
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        color: palevioletred;
+      }
+
+      #clr{
+        color: black;
+      }
+
+      #clr2{
+        color: black;
+        padding: 20px 8px 18px 8px;
+		margin: 3px 0px 0px 0px;
+      }
+
+		</style>
+        <!-- <link rel="stylesheet" href="css/style.css"> -->
+		<link rel="stylesheet" href="./../css/realworld.css">
+	</head>
+	<body>
+        <div id="image-overlay">
+			<img id="reallogo" src="./../SVG/realworld.svg">
+		</div>
+        <button id="arrow-button">go to cafe → </button>
+		<div id="3d-container"></div>
+        <div class="keyboard-info">
+            <div><span id="clr" style="font-size: 20px;" >🐰 How to move tokki 🐰</span></div>
+            <div><span id="clr">space: </span>walk / stand &nbsp;<span id="clr">⬅️➡️:</span> turn left / right</div>
+            <div><span id="clr">a:</span> sit &nbsp;<span id="clr">s:</span> board &nbsp;<span id="clr">d:</span> pick up &nbsp;<span id="clr">f:</span> run</div>
+            <div><span id="clr2">*** TO END THE MOVEMENT PRESS THE SAME KEY ***</span></div>  
+        </div>
+<!-- NAVIGATION BAR -->
+<e>
+    <nav>
+        <div id="close-button" onclick="closeNav()">×</div>
+        <a href="./../index.html" onclick="navigateToPage('index.html')">Home</a>
+        <a href="./../html/custom.html" onclick="navigateToPage('custom.html')">Change Tokki's Color</a>
+        <a href="./../html/citizen.html" onclick="navigateToPage('citizen.html')">Go to Citizen Card</a>
+        <a href="#" onclick="showCreditPopup()">Credit</a>
+    </nav>
+
+    <div id="image-overlay">
+        <img id="reallogo" src="./../SVG/realworld.svg">
+    </div>
+
+    <div id="navigationlogo" onclick="showNavBar()">
+        <img src="./../navigation_logo.png">
+        <div id="option-text">Option</div>
+    </div>
+
+     
+    
+    <div class="popup-container" id="creditPopup">
+        <span class="close-btn" onclick="closeCreditPopup()">&times;</span>
+        <h2 style="text-align: center;">
+        Team 307호<br>
+        박윤희 / 오서현 / 이나영<br>
+         <br>
+        <span class="small-text">
+        ** Source of downloaded models **<br>
+        Coffee Cup - samhoward95<br>
+        Coffee Cup 2 - ithappy<br>
+        Café Soca - Roko.Design<br>
+        Low Poly City - Virginia Vidonis<br>
+        Laptop - Aullwen<br>
+        Luiz IEDA Salao Cafe - SrMonteiro <br>
+        SkateBoard - danielcapalongo<br>
+        Cardboard Box - savaryn<br>
+        table - yryabchenko<br>
+chair - vegu<br>
+phone - K Wang<br>
+         <br>
+         </span>
+         <span class="large-text">
+        Enjoy TOKKI world!<br>
+         </span>
+</h2>
+</div>
+</e>
+        <script type="module" src="./../js/realworld.js"></script>
+		<script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                const button = document.getElementById('arrow-button');
+                button.addEventListener('click', handleClick);
+            });
+
+            // 클릭 이벤트 핸들러 추가
+            function handleClick() {
+                // 이동하고자 하는 페이지로 이동하는 로직을 작성하세요
+                window.location.href = '/html/real_cafe.html';
+                console.log('Button clicked!');
+            }
+		</script>
+
+<button id="cyber-button"> ← go to cyberworld</button>
+<script>
+
+		/* FUNCTION */
+
+		function showNavBar() {
+			const nav = document.querySelector('nav');
+			const navigationLogo = document.getElementById('navigationlogo');
+
+			nav.style.opacity = '1';
+			navigationLogo.style.opacity = '0';
+
+			setTimeout(() => {
+				document.body.style.overflow = 'auto';
+			}, 500);
+		}
+
+		function navigateToPage(page) {
+			window.location.href = page;
+		}
+
+		function showCreditPopup() {
+			var popup = document.getElementById('creditPopup');
+			popup.style.display = 'block';
+			popup.style.opacity = '1';
+			popup.style.transform = 'translate(-50%, -50%) scale(1)';
+		}
+
+		function closeCreditPopup() {
+			var popup = document.getElementById('creditPopup');
+			popup.style.display = 'none';
+		}
+
+		function closeNav() {
+			const nav = document.querySelector('nav');
+			const navigationLogo = document.getElementById('navigationlogo');
+
+			nav.style.opacity = '0';
+			navigationlogo.style.opacity = '1';
+		}
+
+		/* 여기까지 */
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const cbutton = document.getElementById('cyber-button');
+        cbutton.addEventListener('click', handlecClick);
+    });
+
+    // 클릭 이벤트 핸들러 추가
+    function handlecClick() {
+        // 이동하고자 하는 페이지로 이동하는 로직을 작성하세요
+        window.location.href = './../html/cyberworld.html';
+        console.log('Button clicked!');
+    }
+</script>
+    	</body>
+</html> 
+

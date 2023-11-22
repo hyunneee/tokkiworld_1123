@@ -1,0 +1,168 @@
+<!-- (4) Q1. world 정하기 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #FF953C;
+            font-size: 16px;
+            text-align: center;
+            font-family: 'GangwonEduPowerExtraBoldA';
+            font-style: bold;
+        }
+
+        .background-image {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            /* width: 1920px; */
+            /* height: 1080px; */
+        }
+
+        h3 {
+            margin: 20px 0;
+            font-size: 40px;
+            text-align: center;
+            font-family: 'GangwonEduPowerExtraBoldA';
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+            /* position: relative; */
+        }
+
+        .box {
+            width: 30vw;
+            height: 25vh;
+            border-radius: 30px;
+            background-color: #FFE7E0;
+            text-align: center;
+            font-family: 'GangwonEduPowerExtraBoldA';
+            font-size: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .background-box {
+            position: absolute;
+            top: 2px;
+            right: -6px;
+            bottom: -6px;
+            left: 0px;
+            background-color: #FFC085;
+            border-radius: 30px;
+            z-index: -1;
+        }
+
+        #tokki {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            margin: 10px; /* 이미지와 화면 경계 간의 여백 설정, 필요에 따라 조절 */
+        }
+
+        @font-face {
+            font-family: 'GangwonEduPowerExtraBoldA';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            color:#333333;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>이번 겨울에 먹고 싶은 따뜻한 간식은?</h3>
+    <div class="container">
+        <div class="column">
+            <div class="box" id="boong">
+                <div class="background-box"></div>
+                <img src="/img/boong1.png" width="200">
+                붕어빵
+            </div>
+            <div class="box" id="tako">
+                <div class="background-box"></div>
+                <img src="/img/tako.png" width="210">
+                타코야끼
+            </div>
+        </div>
+        <div class="column">
+            <div class="box" id="goguma">
+                <div class="background-box"></div>
+                <img src="/img/goguma.png" width="190">
+                군고구마
+            </div>
+            <div class="box" id="hotchoco">
+                <div class="background-box"></div>
+                <img src="/img/hotchoco1.png" width="210">
+                핫초코
+            </div>
+        </div>
+    </div>
+    <img id="tokki" src="/SVG/brown_tokki.svg" width="100px" height="100px">
+    
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+        // "뒤로 가기" 이미지 클릭 시 이전 페이지로 이동
+            const back_tokki = document.getElementById('tokki');
+            back_tokki.addEventListener('click', function () {
+                window.location.href = "/html/custom.html"; 
+            });
+        });
+        const name = localStorage.getItem("name");
+        const month = localStorage.getItem("month");
+        const day = localStorage.getItem("day");
+        const hobbies = localStorage.getItem("hobbies");
+        const color = localStorage.getItem("color");
+
+        console.log(`name: ${name}, month, day: ${month, day}, hobbies: ${hobbies}, color: ${color}`);
+        
+        document.getElementById("boong").addEventListener("click", function () {
+            window.location.href = "/html/q2.html"; 
+            // 붕어빵은 realworld, q2는 realworld 관련 질문
+        });
+        document.getElementById("tako").addEventListener("click", function () {
+            window.location.href = "/html/q2.html";
+            // 타코야키 realworld, q2는 realworld 관련 질문
+        });
+        document.getElementById("goguma").addEventListener("click", function () {
+            window.location.href = "/html/q3.html";
+            // 고구마는 cyberworld, q3는 cyberworld 관련 질문
+        });
+        document.getElementById("hotchoco").addEventListener("click", function () {
+            window.location.href = "/html/q3.html";
+            // 핫초코는 cyberworld, q3는 cyberworld 관련 질문
+        });
+    </script>
+</body>
+
+</html>
+
+
+

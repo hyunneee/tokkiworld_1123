@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Realworld</title>
+	<style>
+		e {
+			margin: 0;
+			overflow: hidden;
+			transition: overflow 0.5s;
+		}
+
+
+		/* NAVIGATION LOGO OVERLAY, CREDIT POPUP */
+
+		.popup-container {
+			display: none;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) scale (0.8);
+			width: 500px;
+			padding: 20px;
+			background-color: palevioletred;
+			opacity: 50%;
+			border: 1px solid white;
+			border-radius: 20px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			z-index: 3;
+			font-family: 'GangwonEduPowerExtraBoldA';
+			font-size: 15px;
+			color: white;
+			transition: opacity 0.5s, transform 0.5s;
+		}
+
+		.small-text {
+			font-size: 60%;
+		}
+
+		.normal-text {
+			font-size: 100%;
+		}
+
+		.close-btn {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			cursor: pointer;
+		}
+
+		/* 여기까지 */
+
+
+
+		@font-face {
+			font-family: 'GangwonEduPowerExtraBoldA';
+			src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+			font-weight: normal;
+			font-style: normal;
+			color: #333333;
+		}
+	</style>
+	<link rel="stylesheet" href="css/realworld.css">
+</head>
+
+
+
+<body>
+
+
+
+	<!-- NAVIGATION BAR -->
+
+
+	<div class="popup-container" id="creditPopup">
+		<span class="close-btn" onclick="closeCreditPopup()">&times;</span>
+		<h2 style="text-align: center;">
+			Team 307호<br>
+			박윤희 / 오서현 / 이나영<br>
+			<br>
+			<span class="small-text">
+				** Source of downloaded models **<br>
+				Coffee Cup - samhoward95<br>
+				Coffee Cup 2 - ithappy<br>
+				Café Soca - Roko.Design<br>
+				Low Poly City - Virginia Vidonis<br>
+				Laptop - Aullwen<br>
+				Luiz IEDA Salao Cafe - SrMonteiro <br>
+				SkateBoard - danielcapalongo<br>
+				Cardboard Box - savaryn<br>
+				table - yryabchenko<br>
+				chair - vegu<br>
+				phone - K Wang<br>
+				<br>
+			</span>
+			<span class="large-text">
+				Enjoy TOKKI world!<br>
+			</span>
+		</h2>
+	</div>
+	</e>
+
+
+	<!-- 여기까지 -->
+
+
+</body>
+
+</html>

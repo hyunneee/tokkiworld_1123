@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사용자 정보 표시</title>
+    <link rel="stylesheet" href="/css/citizen.css">
+    <style>
+        /* CSS 스타일은 여기에 그대로 두세요 */
+        body {
+            background-color: #FF953C;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            position: absolute;
+            background: #FFE7E0;
+            width: 40vw;
+            margin-top: 50px;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h1 {
+            position: absolute;
+            left: 47.5%;
+            text-align: center;
+            font-size: 40px;
+            margin: 50px;
+            transform: translateX(-50%);
+            font-family: 'GangwonEduPowerExtraBoldA';
+        }
+
+        .user_wrap .citizen_frame {
+            position: relative;
+        }
+
+        .user_wrap .citizen_frame img {
+            position: absolute;
+            width: 40vw; 
+            transition: width 0.5s; /* 추가: width 변경에 대한 트랜지션 설정 */
+        }
+
+        b {
+            position: absolute;
+            background: #4A3A00;
+            bottom: 33%;
+            left: 45%;
+            width: 5.5vw;
+            height: 4vh;
+            text-align: center;
+            font-size: 30px;
+            padding: 10px;
+            margin: 30px 50px;
+            border-radius: 10px;
+            color: #FFE7E0;
+            transform: translateX(-50%);
+            font-family: 'GangwonEduPowerExtraBoldA';
+        }
+
+        d {
+            position: absolute;
+            background: #4A3A00;
+            bottom: 33%;
+            left: 55%;
+            width: 3vw;
+            height: 5.5vh;
+            margin: 30px 50px;
+            border-radius: 10px;
+            color: #FFE7E0;
+            transform: translateX(-50%);
+        }
+
+        #download_icon {
+            width: 3vw;
+            height: 5vh;
+            top: 10%;
+        }
+
+        .user_wrap .user_img img {
+            position: absolute;
+            top: 9vh;
+            left: 4vw;
+            width: 13vw;
+        }
+
+        p {
+            position: relative;
+            top: 9vh;
+            right: 5vw;
+            padding: 13px;
+            text-align: right;
+            font-size: 21px;
+        }
+
+        #numbering {
+            position: relative;
+            left: 32vw;
+            top: 5vh;
+            white-space: pre-line;
+            font-size: 20px;
+        }
+
+        #numbering::after {
+            content: attr(data-number);
+            position: absolute;
+            white-space: nowrap;
+            bottom: 20px;
+            right: 0;
+        }
+
+        @font-face {
+            font-family: 'GangwonEduPowerExtraBoldA';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+            color: #333333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>WELCOME TO TOKKI WORLD!</h1>
+    <a id="a">
+        <div id="diiicv" class="container">
+            <div id="captureArea" class="user_wrap">
+                <div class="citizen_frame">
+                    <img id="frame" src="/SVG/frame.png" onclick="adjustSvgSize()">
+                </div>
+                <div class="user_img">
+                    <img id="tokki_image">
+                </div>
+                <c id="numbering" data-number="Citizenship Card"></c>
+                <div class="user_info">
+                    <p><span id="name"></span></p>
+                    <p><span id="birthdate"></span></p>
+                    <p> <span id="Livingin"></span></p>
+                    <p><span id="hobbies"></span></p>
+                    <p><span id="like"></span></p>
+                </div>
+            </div>
+        </div>
+    </a>
+    <d onclick="captureScreen()">
+        <img id="download_icon" src="/img/download.png"></img>
+    </d>
+
+    <!-- 추가: 실시간으로 캡처된 캔버스를 보여줄 이미지 엘리먼트 -->
+    <div id="liveCanvasContainer"></div>
+
+    <b id="Entrance">Entrance</b>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const color = localStorage.getItem("color");
+            const profileImages = '/personal_tokki_' + color + '.png';
+
+            const tokkiImage = document.getElementById("tokki_image");
+            tokkiImage.src = profileImages;
+        });
+
+        // 수정: SVG 크기를 조절하는 함수
+        function adjustSvgSize() {
+            // var svgContainer = document.getElementById("frame");
+            // if (svgContainer.style.width === "40vw") {
+            //     svgContainer.style.width = "5vw"; // 캡처 시에는 5vw로 축소
+            // } else {
+            //     svgContainer.style.width = "40vw"; // 클릭 시에는 40vw로 확대
+            // }
+        }
+
+        function captureScreen() {
+            // 캡처하려는 요소를 가져옵니다.
+            var captureArea = document.getElementById("captureArea");
+
+            // 캡처된 캔버스를 보여줄 이미지 엘리먼트를 동적으로 생성합니다.
+            var liveCanvasContainer = document.getElementById("liveCanvasContainer");
+            var liveCanvasImage = document.createElement('img');
+            liveCanvasImage.style.width = '100%'; // 이미지를 가득 채우도록 스타일 지정
+            liveCanvasContainer.appendChild(liveCanvasImage);
+
+            // 추가: frame 영역 크기를 다시 축소
+            adjustSvgSize();
+
+            // html2canvas에 캡처하려는 요소를 직접 전달
+            html2canvas(captureArea).then(function (canvas) {
+                var imageData = canvas.toDataURL("image/png");
+
+                // 실시간으로 캡처된 캔버스 이미지를 업데이트
+                liveCanvasImage.src = imageData;
+
+                // 이미지 클릭 시 저장
+                liveCanvasImage.onclick = function () {
+                    var newWindow = window.open();
+                    newWindow.document.write('<img src="' + imageData + '" alt="Captured Screen">');
+                    var downloadLink = document.createElement('a');
+                    downloadLink.href = imageData;
+                    downloadLink.download = 'captured_screen.png';
+                    downloadLink.click();
+                    setTimeout(function () {
+                        downloadLink.click();
+                    }, 0);
+                };
+            });
+        }
+    </script>
+    <script type="module" src="/js/citizen.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+</body>
+
+</html>

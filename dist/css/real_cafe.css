@@ -1,0 +1,23 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+.my-3d-element {
+    position: fixed;
+    top: 0;
+    background-color: #3498db;
+}
+#image-overlay {
+    position: absolute;
+    width:100px;
+    height:100px;   
+    top: 20px;
+    left: 20px;
+    z-index: 1; /* HTML 요소가 3D 씬 위에 나타나도록 설정 */
+  }
+  @font-face {
+    font-family: 'Giants-Inline';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Giants-Inline.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}

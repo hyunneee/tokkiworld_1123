@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사용자 정보 표시</title>
+    <link rel="stylesheet" href="/css/citizen.css">
+    <style>
+        body {
+            font-family: 'GangwonEduPowerExtraBoldA';
+            background-color: #FF953C;
+
+        }
+
+        a {
+            position: absolute;
+            background: #FFE7E0;
+            /* bottom: 5%; */
+            width: 60vw;
+            height: 68.5vh;
+            border-radius: 10px;
+            top: 80px;
+            left: 50%;
+            margin-top: 50px;
+            transform: translateX(-50%);
+            
+        }
+
+        h1 {
+            position: absolute;
+            /* top: 10vh; 높이 조정 */
+            left: 30vw;
+            /* 위치 조정 */
+            font-size: 40px;
+            margin: 50px;
+        }
+
+        .user_wrap .citizen_frame {
+            position: relative;
+        }
+
+        .user_wrap .citizen_frame img {
+            position: absolute;
+            /* top: 80px; */
+            /* left: 50%;  */
+            /* 가운데 정렬을 위해 50% 설정 */
+            /* width: 60vw;  */
+            /* height: 400px;  */
+            /* margin-top: 50px;
+    transform: translateX(-50%);  */
+            /* 이미지의 절반만큼 왼쪽으로 이동시켜 가운데 정렬 */
+        }
+
+
+        b {
+            position: absolute;
+            background: #4A3A00;
+            bottom: 5%;
+            left: 50%;
+            width: 70px;
+            height: 20px;
+            padding: 10px;
+            margin: 30px 50px;
+            border-radius: 10px;
+            color: #FFE7E0;
+            transform: translateX(-50%);
+        }
+
+        d {
+            position: absolute;
+            background: #4A3A00;
+            bottom: 8%;
+            left: 75%;
+            width: 3vw;
+            height: 5.5vh;
+            /* padding: 10px; */
+            margin: 30px 50px;
+            border-radius: 10px;
+            color: #FFE7E0;
+            transform: translateX(-50%);
+        }
+
+        #download_icon {
+            width: 3vw;
+            height: 5vh;
+            top: 10%;
+        }
+
+        .user_wrap .user_img img {
+            position: absolute;
+            top: 12vh;
+            left: 5vw;
+            width: 20vw;
+            /* height: 230px; */
+
+        }
+
+
+        p {
+            position: relative;
+            top: 13.6vh;
+            right: 8vw;
+            padding: 13.3px;
+            /* padding-left: 50px; */
+            text-align: right;
+            font-size: 25px;
+        }
+
+        #numbering {
+            position: relative;
+            left: 50vw;
+            top: 7vh;
+            white-space: pre-line;
+            font-size: 20px;
+            /* font-weight: bold; */
+        }
+
+        #numbering::after {
+            content: attr(data-number);
+            /* data-number 속성 값을 표시 */
+            position: absolute;
+            white-space: nowrap;
+            /* 강제로 줄바꿈을 막음 */
+            bottom: 20px;
+            /* 적절한 위치 조절 */
+            right: 0;
+            /* font-size: 15px;  */
+            /* 숫자의 폰트 크기를 조절 */
+            /* font-weight: normal;  */
+            /* 숫자의 폰트 두께를 조절 */
+        }
+
+        @font-face {
+            font-family: 'GangwonEduPowerExtraBoldA';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+            /* font-weight: normal; */
+            /* font-style: normal; */
+            color: #333333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>WELCOME TO TOKKI WORLD!</h1>
+    <a id="a">
+        <div id="diiicv" class="container">
+            <div id="captureArea" class="user_wrap">
+                <div class="citizen_frame">
+                    <img id="frame" src="/SVG/frame.svg" style="width: 100%; height: 100%;">
+                </div>
+                <div class="user_img">
+                    <img id="tokki_image">
+                </div>
+                <c id="numbering" data-number="Citizenship Card"></c>
+                <div class="user_info">
+                    <p><span id="name"></span></p>
+                    <p><span id="birthdate"></span></p>
+                    <p> <span id="Livingin"></span></p>
+                    <p><span id="hobbies"></span></p>
+                    <p><span id="like"></span></p>
+                </div>
+            </div>
+        </div>
+    </a>
+    <d onclick="captureScreen()">
+        <img id="download_icon" src="/img/download.png"></img>
+    </d>
+
+    <b id="Entrance">Entrance</b>
+    <!-- <a href="info.html">이전 페이지로 돌아가기</a> -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const color = localStorage.getItem("color");
+        const profileImages = '/personal_tokki_' + color + '.png';
+
+        const tokkiImage = document.getElementById("tokki_image");
+        tokkiImage.src = profileImages;
+    });
+
+        function captureScreen() {
+            // 현재 뷰포트의 크기를 가져와서 지정
+            var captureWidth = window.innerWidth * 0.6;
+            var captureHeight = window.innerHeight * 0.685;
+            console.log(captureHeight, captureWidth);
+            // top: 80px;
+            // left: 50%;
+            // margin-top: 50px;
+            // transform: translateX(-50%);
+            
+            // html2canvas에 크기 정보를 전달하여 캡처
+            html2canvas(document.body, {
+                width: captureWidth,
+                height: captureHeight
+            }).then(function (canvas) {
+                var imageData = canvas.toDataURL("image/png");
+                var newWindow = window.open();
+                newWindow.document.write('<img src="' + imageData + '" alt="Captured Screen">');
+                var downloadLink = document.createElement('a');
+                downloadLink.href = imageData;
+                downloadLink.download = 'captured_screen.png';
+                downloadLink.click();
+                setTimeout(function () {
+                    downloadLink.click();
+                }, 0);
+            });
+        }
+    </script>
+    <script type="module" src="/js/citizen.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+</body>
+
+</html>

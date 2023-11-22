@@ -1,0 +1,52 @@
+
+
+
+height: 230px;/
+
+padding: 7px;
+    padding-left: 50px;
+    text-align: right;
+    font-size: small;
+
+b {
+    position: absolute;
+    background:#4A3A00;
+    top: 525px;
+    width: 70px;
+    height:20px;
+    padding: 10px;
+    margin: 30px 50px;
+    border-radius: 10px; /* 원하는 둥근 정도를 설정 */
+    color:#FFE7E0;
+}
+
+top: 20px;
+    left: 450px;
+    margin: 50px;
+    
+#numbering {
+    position: relative;
+    left: 275px;
+    top: 165px;
+    white-space: pre-line;
+    font-size: 12px;
+    /* font-weight: bold; */
+}
+height: 100%;
+margin: 0;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+#numbering::after {
+    content: attr(data-number); /* data-number 속성 값을 표시 */
+    position: absolute;
+    white-space: nowrap; /* 강제로 줄바꿈을 막음 */
+    bottom: 12px; /* 적절한 위치 조절 */
+    right: 0;
+    /* font-size: 15px;  */
+    /* 숫자의 폰트 크기를 조절 */
+    /* font-weight: normal;  */
+    /* 숫자의 폰트 두께를 조절 */
+}

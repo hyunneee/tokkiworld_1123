@@ -1,0 +1,122 @@
+body{
+    background-color: #FF953C;
+
+}
+
+a {
+    position: relative;
+}
+
+h1{
+    font-family: 'GangwonEduPowerExtraBoldA';
+    position: relative;
+    
+}
+
+.user_wrap .citizen_frame img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    width:60%;
+    height: auto;
+}
+
+.user_wrap .user_img img {
+    position: absolute;
+    top:18%;
+    left:800%;
+    width: 600%;
+    
+}
+
+p{
+    position: relative;
+    top:18%;
+    left: 1000%;
+    
+}
+
+b {
+    position: relative;
+    background:#4A3A00;
+    top: 525px;
+    width: 70px;
+    height:20px;
+    padding: 10px;
+    margin: 30px 50px;
+    border-radius: 10px; /* 원하는 둥근 정도를 설정 */
+    color:#FFE7E0;
+}
+
+@font-face {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+    /* font-weight: normal; */
+    /* font-style: normal; */
+    color:#333333;
+}
+
+/*
+body {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    background-color: #FF953C;
+    margin: 0;
+    padding: 0;
+}
+img { 
+    width: 50%;
+    height: auto;
+  }
+
+
+
+a{
+    position:absolute;
+    left:25%;
+    
+}
+
+h1{
+    position: absolute;
+    margin: 50px;
+    /* left: 50%; 
+}
+
+
+*/
+/* div {
+    /* background:#FFE7E0;
+    width: 500px;
+    height:300px;
+    padding: 20px;
+    margin: 30px 50px;
+    border-radius: 20px; 원하는 둥근 정도를 설정 
+} */
+/*
+.frame {
+    display: block;
+    width: 200px;
+    height: 200px;
+    background-image: url('SVG/frame.svg');
+    background-size: cover;
+    position: relative;
+}
+
+.userInfo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.container{
+    position:relative;
+}
+
+info {
+    position:relative;
+    padding: 20px;
+    left: 50%;
+}
+*/
