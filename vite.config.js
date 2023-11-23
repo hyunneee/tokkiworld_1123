@@ -3,6 +3,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+    base:"./tokki_world",
   build: {
     outDir: 'dist',
     assetsInclude: ['**/*.html', '**/*.js', '**/*.css', '**/*.glb', '**/*/*.glb'],
